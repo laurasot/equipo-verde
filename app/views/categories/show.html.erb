@@ -1,0 +1,35 @@
+<div class="bannerproduct my-5">
+    <div class="container border-bottom pb-3">
+      <h2 class="" align="center">Detalle del producto</h2>
+    </div>
+</div>
+
+<div class="container">
+  <ul>
+    <% @products.each do |product| %>
+      
+      <div class="row justify-content-center align-items-center">
+        <div class="col-6 mb-3">
+          <%= image_tag product.image_url, class:"imagenproducto rounded mx-auto d-block" %>
+        </div>
+        <div class="col-auto m-5">
+          <div class="nombreproduct mb-2">
+            <%= product.name %>
+          </div>
+          $<%= product.price %>
+          <%= product.price.currency %>
+          <%= product.conent %>
+          <div class="botones1 mt-3">
+            <%= link_to new_order_path(product_id: product.id) do %>
+              <div class="compra btn">Comprar</div>
+            <% end %>
+            <%= link_to categories_path do %>
+              <div class="sigue btn ml-2">Añadir a la orden</div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>
+

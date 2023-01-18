@@ -1,0 +1,53 @@
+<div class="banner20">
+   <div class="container d-flex justify-content-center" >
+     <div class="center">
+        <h1>Tu pedido contribuye a mejorar el planeta</h1>
+     </div>
+   </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+  <h1>Tu Pedido</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+            <% @order.line_items.each do |line_item| %>
+            <td><%= line_item.product.name %></td>
+            <td><%= line_item.amount %></td>
+            <td><%= line_item.total_price %></td>
+            <% end %>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"> </th>
+          <td colspan="2">Total</td>
+          <td><%= @order.total_price %></td>
+          
+        </tr>
+      </tbody>
+    </table>
+     </tr>
+      </tbody>
+    </table>
+</div>
+<div class="container mt-4">
+  <%= simple_form_for @order do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: "processed"} %>
+    <%= f.input :product_id, as: :hidden, input_html: { value: @product.id } %>
+    <div class="btn botoncompletar">
+    <%= f.submit "Completar orden", class: 'btn' %>
+    </div>
+  <% end %>
+</div>
+

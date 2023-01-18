@@ -1,0 +1,28 @@
+<div class="bannercategories">
+  <div class="container">
+     <div class="row">
+      <div class="col-sm  m-b-30">
+      </div> 
+      <div class="col-sm  m-b-30">
+      </div>
+      <div class="col-sm  m-b-30">
+        <h1 class="" align="right">Categoría de Productos</h1>
+      </div> 
+    </div>     
+  </div>
+</div>
+
+<div class="categorias container">
+  <% Category.all.each do |category| %>
+    <div class="targeta1 card bg-dark text-white my-5">
+      <%= image_tag category.image_url, class:"card-img rounded" %>
+      <div class="card-img-overlay d-flex justify-content-center align-items-center flex-column">
+        <%= link_to category.name, category_path(category.id)%> 
+        <p class="card-text"><%= category.description %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+

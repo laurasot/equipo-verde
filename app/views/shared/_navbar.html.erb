@@ -1,0 +1,43 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "http://localhost:3000", class: "navbar-brand" do %>
+    <%= image_tag "https://previews.123rf.com/images/iglira/iglira1712/iglira171200087/91755007-ilustraci%C3%B3n-de-vector-de-s%C3%ADmbolo-de-reciclaje-verde-aislado-sobre-fondo-blanco-signo-de-reciclaje-en.jpg" %>
+    <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+            <li class="nav-item active pr-4 btn btn-flat">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active pr-4 btn btn-flat">
+          <%= link_to "Products", categories_path,  class: "nav-link" %>
+          </li>
+          <li class="nav-item active pr-4 btn btn-flat">
+          <%= link_to "About", about_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active pr-4 btn btn-flat">
+          <%= link_to "Recycle", recycle_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active pr-4 btn btn-flat">
+          <%= link_to "Contact", contact_path, class: "nav-link" %>
+          </li>
+        <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://st2.depositphotos.com/3554337/12097/i/950/depositphotos_120976894-stock-photo-green-user-avatar-icon.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+          
+        </li>
+      <% else %>
+
+        <li class="nav-item   btn btn-flat">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+        
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.banner4 {
+  background-size: cover;
+  background-position: center;
+  padding: 350px 0;
+}
+
+#recycle {
+  text-align: justify;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  }
+
+@media screen and ( max-width: 1024px ) {
+  img.responsive { width: 200px; }
+  }
+  
+  .orden {
+    background-color: #95D5B2;
+  }
